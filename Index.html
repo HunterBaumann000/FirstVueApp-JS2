@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>US Travel Tracker</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="images/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- css -->
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@3.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<!-- components: addBTN, removeBTN, favBTN, Body-->
+
+<div id="app">
+    <v-app>
+
+
+        <!-- Header -->
+        <navigation-bar title="Travel Tracker" sub-header="My US State Travel List"> </navigation-bar>
+
+
+        <!-- Content Container -->
+        <v-container class="grey lighten-5" id="pageContentContainer">
+            <v-row>
+                <v-col id="colWithVerticalLine">
+
+                    <!-- Input State Form -->
+<!--                    <add-state-form @click="addState" state></add-state-form>-->
+
+                    <v-form>
+                        <v-container>
+                            <v-row>
+                                <v-col cols="12" sm="6">
+                                    <v-text-field
+                                            required
+                                            label="State Name"
+                                            v-model="state.name"
+                                            outlined
+                                    ></v-text-field>
+                                </v-col>
+
+                                <v-col cols="12" sm="6">
+                                    <v-text-field
+
+                                            label="Date Traveled"
+                                            v-model="state.date"
+                                            outlined
+                                    ></v-text-field>
+                                </v-col>
+                            </v-row>
+
+                            <v-text-field
+                                    label="Summary of Trip"
+                                    v-model="state.description"
+                                    outlined
+                            ></v-text-field>
+
+                            <v-radio-group
+                                    v-model="state.wasEnjoyable"
+                                    row
+                            >
+                                <v-radio
+
+                                        label="Fun Destination"
+                                        v-bind:value="true"
+
+                                ></v-radio>
+                                <v-radio
+                                        label="Bad Destination"
+                                        v-bind:value="false"
+
+                                ></v-radio>
+
+                            </v-radio-group>
+
+
+
+
+                            <div class="my-2">
+                                <v-btn type="submit"
+                                       color="purple"
+                                       @click.prevent="addState"
+                                       dark large>
+                                    Add State
+                                </v-btn>
+                            </div>
+
+<!--                            <div class="my-2">-->
+<!--                                <v-btn type="button"-->
+<!--                                       color="teal"-->
+<!--                                       @click.prevent="userStateListFavoriteOnly"-->
+<!--                                       dark large>-->
+<!--                                    Toggle Favorites-->
+<!--                                </v-btn>-->
+<!--                            </div>-->
+
+                        </v-container>
+                    </v-form>
+
+                </v-col>
+
+                <v-col>
+
+                    <!-- Array of States -->
+                    <div class="travel-list">
+                        <item-list
+                                :states="userStateList"
+                                @remove-item="removeState">
+                        </item-list>
+                    </div>
+
+
+                </v-col>
+            </v-row>
+        </v-container>
+
+
+        <!-- Footer-->
+        <custom-footer footer-text="US State Tracker"></custom-footer>
+
+
+    </v-app>
+</div>
+
+<!-- ------------------------------------------------ -->
+
+<!-- Vue Application -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+<script src="js/components/navigationBar.js"></script>
+<script src="js/components/addStateForm.js"></script>
+<script src="js/components/footer.js"></script>
+<script src="js/components/itemList.js"></script>
+<script src="js/components/listItem.js"></script>
+
+
+<script src="js/app.js"></script>
+
+</body>

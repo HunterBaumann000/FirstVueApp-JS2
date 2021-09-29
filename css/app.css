@@ -1,0 +1,33 @@
+#pageContentContainer {
+    padding-top: 60px;
+    padding-bottom: 280px;
+}
+
+#colWithVerticalLine {
+    border-right: thick solid purple;
+}
+
+#listItemPanel {
+    margin-bottom: 0.5em;
+}
+
+.list-group {
+    padding-left: 10px;
+}
+
+#favoriteState:hover {
+    opacity: 0.3;
+}
+
+#removeState:hover {
+    opacity: 0.3;
+}
+
+#isFavSpan {
+    display: block;
+}
+
+div[aria-required=true].v-input .v-label::after {
+    content: " *";
+    color: red;
+}
