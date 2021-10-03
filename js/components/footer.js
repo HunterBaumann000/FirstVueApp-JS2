@@ -24,5 +24,6 @@ Vue.component('CustomFooter', {
         {{ footerDate }} — <strong> {{ footerText }} </strong>
       </v-col>
       </v-footer>
+      
     `
 });
