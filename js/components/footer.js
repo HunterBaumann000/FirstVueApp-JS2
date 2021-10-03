@@ -15,10 +15,11 @@ Vue.component('CustomFooter', {
     },
 
     template: `
-      <v-footer class="pa-3" >
+      <v-footer class="pa-3"  color="purple">
       <v-col
           class="text-center"
           cols="12"
+          
       >
         {{ footerDate }} — <strong> {{ footerText }} </strong>
       </v-col>

@@ -10,19 +10,16 @@ Vue.component('AddStateForm', {
 
 
     methods: {
-        createUserItem() {
-            this.name = this.state.name;
-            this.description = this.state.description;
-            this.date = this.state.date;
-            this.wasEnjoyable = this.state.wasEnjoyable;
 
+        addUserState() {
             this.$emit('add-state', this.state)
-        },
+        }
 
     },
 
     template:
         `
+          <div class="userStateForm">
       <v-form>
       <v-container>
         <v-row>
@@ -31,7 +28,7 @@ Vue.component('AddStateForm', {
             <v-text-field
                 
                 label="State Name"
-                v-model="name"
+                v-model="state.name"
                 outlined
             ></v-text-field>
           </v-col>
@@ -40,7 +37,7 @@ Vue.component('AddStateForm', {
             <v-text-field
 
                 label="Date Traveled"
-                v-model="date"
+                v-model="state.date"
                 outlined
             ></v-text-field>
           </v-col>
@@ -48,21 +45,21 @@ Vue.component('AddStateForm', {
 
         <v-text-field
             label="Summary"
-            v-model="description"
+            v-model="state.description"
             outlined
         ></v-text-field>
 
         <v-radio-group
-            v-model="wasEnjoyable"
+            v-model="state.wasEnjoyable"
             row
         >
           <v-radio
               label="Fun Destination"
-              value="true"
+              v-bind:value="true"
           ></v-radio>
           <v-radio
               label="Bad Destination"
-              value="false"
+              v-bind:value="false"
 
           ></v-radio>
 
@@ -72,7 +69,7 @@ Vue.component('AddStateForm', {
         <div class="my-2">
           <v-btn type="submit"
                  color="purple"
-                 @click.prevent="createUserItem"
+                 @click.prevent="addUserState"
                  dark large>
             Add State
           </v-btn>
@@ -80,5 +77,6 @@ Vue.component('AddStateForm', {
 
       </v-container>
       </v-form>
+          </div>
     `
 });

@@ -21,7 +21,7 @@ const app = new Vue({
         },
 
         stateList: [
-            {name: 'Wisconsin', date: ''+ new Date().toDateString() +'', description: 'Ver cold but has a lot of cheese.', wasEnjoyable: false},
+            {name: 'Wisconsin', date: ''+ new Date().toDateString() +'', description: 'Very cold but has a lot of cheese.', wasEnjoyable: false},
         ],
     },
     methods: {
